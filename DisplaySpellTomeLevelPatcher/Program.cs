@@ -127,7 +127,7 @@ namespace DisplaySpellTomeLevelPatcher
                     var spellInfo = GetSpellInfo(state, spell);
                     var settings = _settings.Value;
 
-                    var newNamePrepend = "";
+                    var newNamePrepend = book.Name.String.Split(":")[0];
                     var schoolName = "";
                     var levelName = "";
                     var modName = "";
@@ -163,7 +163,7 @@ namespace DisplaySpellTomeLevelPatcher
                     
                     newName = newNamePrepend+newName;
                     */
-                    newNamePrepend  = book.Name.String;
+
                     Console.WriteLine(newNamePrepend);
                     Console.WriteLine(book.Name.String + "->" + newName);
 
