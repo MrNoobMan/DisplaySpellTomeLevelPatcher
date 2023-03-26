@@ -123,11 +123,11 @@ namespace DisplaySpellTomeLevelPatcher
                     if (spell == null || spell.Name == null)
                         continue;
                     
-                    var newNamePrepend = book.Name.String.Split(":").ToCharArray();;
                     var spellName = spell.Name.String;
                     var spellInfo = GetSpellInfo(state, spell);
                     var settings = _settings.Value;
 
+                    var newNamePrepend = "";
                     var schoolName = "";
                     var levelName = "";
                     var modName = "";
@@ -163,6 +163,8 @@ namespace DisplaySpellTomeLevelPatcher
                     
                     newName = newNamePrepent+newName;
                     */
+                    newNamePrepent = book.Name.String.Split(":");
+                    Console.WriteLine(newNamePrepent);
                     Console.WriteLine(book.Name.String + "->" + newName);
 
                     state.PatchMod.Books.GetOrAddAsOverride(book).Name = newName;
