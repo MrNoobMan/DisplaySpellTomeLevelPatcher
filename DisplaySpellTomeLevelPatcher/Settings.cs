@@ -6,7 +6,7 @@ namespace DisplaySpellTomeLevelPatcher
     public class Settings
     {
         [SynthesisTooltip(@"Specify your own format here! Available variables: <level> (ex. Adept), <spell> (ex. Clairvoyance), <plugin> (ex. ForgottenMagic_Redone), <mod> (name of the mod instead of the plugin name, ex. Forgotten Magic Redone), <school> (ex. Alteration). Default: Spell Tome (<level>): <spell>")]
-        public string Format { get; set; } = "(<level>): <spell>";
+        public string Format { get; set; } = "(<tomePrepend>)(<level>): <spell>";
 
         [SynthesisTooltip(@"Specify your own format for mod names (<mod>) here! When a plugin name wasn't found here, the patcher will try and automatically convert the plugin name to the mod name - results may vary.")]
         public Dictionary<string, string> PluginModNamePairs { get; set; } = new()
