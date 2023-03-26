@@ -123,7 +123,7 @@ namespace DisplaySpellTomeLevelPatcher
                     if (spell == null || spell.Name == null)
                         continue;
                     
-                    var newNamePrepend = book.Name.String.Split(:);
+                    var newNamePrepend = book.Name.String.Split(":");
                     var spellName = spell.Name.String;
                     var spellInfo = GetSpellInfo(state, spell);
                     var settings = _settings.Value;
