@@ -156,7 +156,15 @@ namespace DisplaySpellTomeLevelPatcher
 
 
                     var newName = settings.Format.Replace(LevelFormat, levelName).Replace(PluginFormat, pluginName).Replace(SchoolFormat, schoolName).Replace(SpellFormat, spellName).Replace(ModFormat, modName);
-
+                    
+                    //Add back old behavior in zEdit Patcher that keeps the name of the tome if it is named something else than "Spell Tome" eg. Reformulated Tomes in Aracanum
+                    var newNamePrepent = book.Name.String.Split(":");
+                    if(newNamePrepent.Length < 2){
+                        newNamePrepent = "Spell Tome ";
+                    }
+                    
+                    newName = newNamePrepent+newName;
+                    
                     Console.WriteLine(book.Name.String + "->" + newName);
 
                     state.PatchMod.Books.GetOrAddAsOverride(book).Name = newName;
