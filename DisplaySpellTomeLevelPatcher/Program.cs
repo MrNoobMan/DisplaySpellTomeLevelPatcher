@@ -163,7 +163,7 @@ namespace DisplaySpellTomeLevelPatcher
                     
                     newName = newNamePrepend+newName;
                     */
-                    newNamePrepend  = book.Name.String.Split(":");
+                    newNamePrepend  = book.Name.String;
                     Console.WriteLine(newNamePrepend);
                     Console.WriteLine(book.Name.String + "->" + newName);
 
