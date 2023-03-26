@@ -28,8 +28,7 @@ namespace DisplaySpellTomeLevelPatcher
         }
 
         public readonly static ModKey BetterSpellLearning = ModKey.FromNameAndExtension("Better Spell Learning.esp");
-
-        public const string TomePrepend = "<tomePrepend>";
+        
         public const string LevelFormat = "<level>";
         public const string SpellFormat = "<spell>";
         public const string PluginFormat = "<plugin>";
@@ -156,15 +155,11 @@ namespace DisplaySpellTomeLevelPatcher
                     }
                     var pluginName = book.FormKey.ModKey.Name;
 
-                    var newName = settings.Format.Replace(TomePrepend, newNamePrepend).Replace(LevelFormat, levelName).Replace(PluginFormat, pluginName).Replace(SchoolFormat, schoolName).Replace(SpellFormat, spellName).Replace(ModFormat, modName);
+                    var newName = settings.Format.Replace(LevelFormat, levelName).Replace(PluginFormat, pluginName).Replace(SchoolFormat, schoolName).Replace(SpellFormat, spellName).Replace(ModFormat, modName);
                     
                     //Add back old behavior in zEdit Patcher that keeps the name of the tome if it is named something else than "Spell Tome" eg. Reformulated Tomes in Aracanum
-                    /*var newNamePrepend = book.Name.String.Split(":");
-                    
-                    newName = newNamePrepend+newName;
-                    */
+                    newName = newNamePrepend+" "+newName;
 
-                    Console.WriteLine(newNamePrepend);
                     Console.WriteLine(book.Name.String + "->" + newName);
 
                     state.PatchMod.Books.GetOrAddAsOverride(book).Name = newName;
