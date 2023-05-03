@@ -130,7 +130,7 @@ namespace DisplaySpellTomeLevelPatcher
                     var namePrepend = book.Name.String.Split(":")[0];
                     
                     //failsafe incase of no colon in spell tome name
-                    if(namePrepend.Lenght <= 0){
+                    if(namePrepend.Length <= 0){
                         namePrepend = "Spell Tome ";
                     }
                     
